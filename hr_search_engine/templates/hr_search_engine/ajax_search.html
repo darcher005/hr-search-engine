@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Remote JSONP datasource</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#query" ).autocomplete({
+        source: "{% url 'hr_search_engine:query_recommend' %}",
+    } );
+
+  } );
+  </script>
+</head>
+<body>
+<h2>智能搜索引擎 V1.0 测试 - Custom</h2>
+<br/>
+<div class="ui-widget">
+    <form action="{% url 'hr_search_engine:esquery' %}" method="GET">
+  <label for="query">请输入搜索语句: </label>
+  <input id="query", name="query">
+    <input type="submit" value="查询" id="esquery">
+    </form>
+</div>
+</body>
+</html>
